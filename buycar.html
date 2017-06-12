@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车实例上</title>
+    <script src="../lib/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="buycar">
+    <h3><span>购物车</span></h3>
+
+    <template id="my-buygoods" v-if="goods.length">
+        <div id="buycarTitle">
+            <ul class="buyCarList">
+                <li class="li-checkbox"><input type="checkbox" value="" id="allselect" @click="selectAll"> 全选</li>
+                <li class="li-info">商品信息</li>
+                <li class="li-price">单价</li>
+                <li class="li-num">数量</li>
+                <li class="li-money">金额</li>
+                <li class="li-oper">操作</li>
+            </ul>
+        </div>
+
+        <div class="buyGoods" v-for="item in goods">
+            <ul class="buyCarList">
+                <li class="li-checkbox"><input type="checkbox" id="{{$index}}" value="{{$index}}" v-model="checkname"></li>
+                <li class="li-info">
+                    <div class="goods-img"><img v-bind:src="item.goodsImg"></div>
+                    <div class="goods-title">{{item.goodsTitle}}</div>
+                    <div class="goods-specifications">{{item.goodsSpecifications}}</div>
+                </li>
+                <li class="li-price">
+                    <div class="goods-original">{{item.goodsOriginal | currency '￥'}}</div>
+                    <div class="goods-price">{{item.goodsPrice | currency '￥'}}</div>
+                </li>
+                <li class="li-num">
+                    <span class="goods-num-btn goods-num-minus" @click="minus($index)">-</span>
+                    <input type="text" :value="item.goodsNum" class="goods-num" v-model="item.goodsNum">
+                    <span class="goods-num-btn goods-num-add" @click="add($index)">+</span>
+                </li>
+                <li class="li-money">
+                    <div class="goods-allPrice">{{item.goodsPrice*item.goodsNum | currency '￥'}}</div>
+                </li>
+                <li class="li-oper">
+                    <div class="goods-oper" @click="del($index)">删除</div>
+                </li>
+            </ul>
+        </div>
+    <!--测试checkname   {{checkname | json}}-->
+        <div id="clearing">
+            <ul class="buyCarList">
+                <li class="li-checkbox">&nbsp;</li>
+                <li class="li-info"><span class="hand" @click="delall">删除</span> <span class="hand" @click="cleanAll">清空</span></li>
+                <li class="li-price">&nbsp;</li>
+                <li class="li-num">已选商品共{{allcount}}件</li>
+                <li class="li-bottom">合计（不含运费）：{{total  | currency '￥'}} </li>
+            </ul>
+            <div class="buycar-btn">结算</div>
+        </div>
+    </template>
+    <template v-else>
+        <p>（空）</p>
+    </template>
+</div>
+<script src="js/index.js"></script>
+</body>
+</html>

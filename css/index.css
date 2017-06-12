@@ -1,0 +1,145 @@
+.hand {
+  cursor: pointer;
+}
+#buycar {
+  margin: 0 auto;
+  width: 1000px;
+  padding: 10px;
+}
+#buycar h3 {
+  color: #f08719;
+  font-size: 300%;
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 5px solid #edecec;
+  height: 81px  !important;
+  height: 82px;
+}
+#buycar h3 span {
+  border-bottom: 5px solid #f08719;
+  position: absolute;
+  text-indent: 10px;
+}
+#buycar #buycarTitle {
+  height: 35px;
+  line-height: 35px;
+  margin-bottom: 20px;
+  padding-left: 25px;
+}
+#buycar #buycarTitle ul {
+  margin: 0;
+  padding: 0;
+}
+#buycar .buyCarList li {
+  list-style-type: none;
+  float: left;
+  text-align: center;
+  overflow: hidden;
+}
+#buycar .buyCarList .li-checkbox {
+  width: 80px;
+  text-align: left;
+}
+#buycar .buyCarList .li-info {
+  width: 350px;
+  text-align: left;
+  padding: 0 10px 0 0;
+}
+#buycar .buyCarList .li-price {
+  width: 100px;
+}
+#buycar .buyCarList .li-num {
+  width: 170px;
+}
+#buycar .buyCarList .li-money {
+  width: 100px;
+}
+#buycar .buyCarList .li-oper {
+  width: 100px;
+}
+#buycar .buyCarList .li-bottom {
+  width: 180px;
+}
+#buycar .buyGoods {
+  background-color: #edecec;
+  border: 1px solid #bfbebe;
+  height: 100px;
+  overflow: hidden;
+  padding: 10px 0;
+  font-size: 75%;
+  margin-bottom: 20px;
+}
+#buycar .buyGoods .goods-img {
+  width: 90px;
+  height: 80px;
+  overflow: hidden;
+  float: left;
+}
+#buycar .buyGoods .goods-img img {
+  width:90%;
+  height:90%;
+}
+#buycar .buyGoods .goods-original {
+  color: #bfbebe;
+  text-decoration: line-through;
+  font-size: 60%;
+}
+#buycar .buyGoods .goods-specifications {
+  color: #bfbebe;
+}
+#buycar .buyGoods .goods-price {
+  font-weight: bold;
+  font-size: 85%;
+}
+#buycar .buyGoods .goods-allPrice {
+  font-weight: bold;
+  font-size: 100%;
+}
+#buycar .buyGoods .goods-oper {
+  cursor: pointer;
+}
+#buycar .buyGoods .goods-oper:hover {
+  color: #ee0013;
+}
+#buycar .buyGoods .goods-num {
+  width: 25px;
+  height: 20px;
+  text-align: center;
+  border: solid 1px #bfbebe;
+  margin-bottom: 5px;
+}
+#buycar .buyGoods .goods-num-btn {
+  padding: 2px 5px;
+  text-align: center;
+  cursor: pointer;
+}
+#buycar .buyGoods .goods-num-btn:hover {
+  color: #fff;
+  background-color: #ee0013;
+}
+#buycar .buyGoods:hover {
+  background-color: #f9f9f9;
+  border: 1px solid #edecec;
+}
+#buycar #clearing {
+  height: 55px;
+  line-height: 55px;
+  background-color: #edecec;
+  border: 1px solid #bfbebe;
+  font-size: 75%;
+}
+#buycar #clearing .buycar-btn {
+  background-color: #f08719;
+  float: right;
+  color: #fff;
+  width: 80px;
+  text-align: center;
+  margin-top: -56px;
+  height: 55px;
+  font-size: 150%;
+  cursor: pointer;
+  letter-spacing: 5px;
+}
+#buycar #clearing .buycar-btn:hover {
+  background-color: #fc983d;
+}
