@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+</head>
+<body>
+<h1>watch</h1>
+<p>促销活动策略：满50元减5元</p>
+<hr>
+<div id="app">
+    <!--<my-goods title="花生" num="2" price="4" discount="0" total="50" cut="5" ></my-goods>-->
+    <my-goods></my-goods>
+</div>
+
+<script>
+    var BuyCar = Vue.extend({
+        data:function () {
+            return ({
+                title:'苹果',
+                num: '1',
+                price: '5',
+                discount: '0',
+                total: '50',
+                cut: '5'
+            })
+        },
+        //如果在组件上通过自定义属性传值的话就需要借助props来取到需要的内容，也就可不要上面的data数据
+        //props: ['title','num','price','discount','total','cut'],
+        template:'\
+            <p>购买{{ title }}</p>\
+            <p>数量：{{ num }}</p>\
+            <p>单价：{{ price | currency "￥" }}</p>\
+            <p>优惠：{{ discount | currency "￥" }}</p>\
+            <p>总价：{{ num*price+parseInt(discount) | currency "￥" }}</p>\
+            <p><button @click="jia">+</button> <button @click="jian">-</button></p>',
+        methods:{
+            jia:function(){
+                this.num ++
+            },
+            jian:function(){
+                this.num --
+            }
+        },
+        watch:{
+            num:function( newVal , oldVal ){
+                if(newVal<1){
+                    this.num = 1
+                }
+                this.discount = -this.cut*parseInt(this.num*this.price/this.total)
+            }
+        }
+    });
+    var vm = new Vue({
+        el:'#app',
+        components:{
+            'my-goods': BuyCar
+        }
+    });
+
+</script>
+</body>
+</html>
